@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "task_name": "care-class-to-develop",
+  "mode": "backport",
+  "created_at": "2026-05-12T00:00:00+08:00",
+  "paused_at": null,
+  "finalized_at": "2026-05-13T09:27:00+08:00",
+  "status": "finalized",
+  "source": {
+    "type": "branch",
+    "ref": "refactor/micro-core-dev",
+    "sha": "d5b40412fde74ae65e7f18b093c4c6daacd4c712",
+    "merge_base_with_target": "8ea045f5ac028b9a6731c2573211f3e471d6db89"
+  },
+  "target": {
+    "branch": "develop",
+    "head_sha": "8e414953aca53ba00c9e2e3db466d15067fbc7a5",
+    "base_sha": "8e414953aca53ba00c9e2e3db466d15067fbc7a5"
+  },
+  "working_branch": "merge/care-class-to-develop",
+  "stage": 8,
+  "stage_history": [
+    {
+      "stage": 3,
+      "tag": "merge/care-class-to-develop/before-step-3",
+      "completed_at": "2026-05-12T00:00:00+08:00"
+    },
+    {
+      "stage": 7,
+      "tag": "merge/care-class-to-develop/done",
+      "completed_at": "2026-05-13T09:27:00+08:00"
+    }
+  ],
+  "decisions": [],
+  "auto_resolved_summary": {
+    "A_count": 0,
+    "B_count": 0,
+    "A_files": [],
+    "demoted_A_in_backport_mode": []
+  },
+  "config": {
+    "commit_granularity": "single-merge",
+    "semantic_mapping_enabled": true,
+    "locked_file_rules": {
+      "take_target": [],
+      "take_source": []
+    }
+  },
+  "cleanup_policy": "default-7d"
+}

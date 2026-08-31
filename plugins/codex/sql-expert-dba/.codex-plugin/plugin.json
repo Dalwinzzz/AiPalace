@@ -1,0 +1,37 @@
+{
+  "name": "sql-expert-dba",
+  "version": "1.2.0",
+  "description": "面向 MySQL/PostgreSQL 与通用 SQL 场景的分析型 DBA 助手，支持查询优化、报错诊断、Schema 评审、业务报表 SQL 生成、便携式全局 SQL memory、显式记忆沉淀（用户说\"记下来\"或 workflow 收尾自评估写入时落库；Skill 执行层为唯一沉淀真源）、项目级 ./sql 上下文索引，以及 ./sql/biz-rules/ 业务规则沉淀。插件会读取当前工作目录 ./sql/ 下的 .sql/.ddl/.explain/.log/.txt/.md 文件，提取 DDL、schema dump、EXPLAIN、慢 SQL 和说明文档信息并生成 ./sql/.index/；不直连数据库、不执行 SQL。",
+  "author": {
+    "name": "dalwin",
+    "url": ""
+  },
+  "license": "MIT",
+  "keywords": [
+    "sql",
+    "mysql",
+    "postgresql",
+    "query-optimization",
+    "schema-review",
+    "reporting-sql",
+    "dba"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SQL Expert DBA",
+    "shortDescription": "SQL 优化、报错定位、DDL 评审、业务 SQL 生成与 ./sql 项目上下文助手",
+    "longDescription": "面向 MySQL/PostgreSQL 与通用 SQL 场景的分析型 DBA 助手。v1.2.0 增加便携式全局 SQL memory、项目级 ./sql 上下文索引，以及 ./sql/biz-rules/ 业务规则沉淀。记忆沉淀以 Skill 执行层为唯一真源：用户说\"记下来/值得沉淀/帮我复盘\"或 workflow 收尾自评估通过时，由 skill 直接调用 memory_capture.py 落库到用户级全局目录。插件会读取当前工作目录 ./sql/ 下的 .sql/.ddl/.explain/.log/.txt/.md 文件，提取 DDL、schema dump、EXPLAIN、慢 SQL 和说明文档信息并生成 ./sql/.index/；业务规则写入 ./sql/biz-rules/ 并维护 table/module 索引；插件不直连数据库、不执行 SQL。",
+    "developerName": "dalwin",
+    "category": "Programming",
+    "capabilities": ["Interactive", "Write"],
+    "defaultPrompt": [
+      "优化这条 SQL，并指出性能瓶颈和索引建议",
+      "解释这段 SQL 报错，并给出最可能的修复方案",
+      "根据业务需求和表结构生成统计 SQL，再帮我检查口径"
+    ],
+    "brandColor": "#336791",
+    "composerIcon": "./assets/icon.svg",
+    "logo": "./assets/logo.svg",
+    "screenshots": []
+  }
+}

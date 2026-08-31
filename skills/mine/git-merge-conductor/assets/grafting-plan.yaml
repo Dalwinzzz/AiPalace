@@ -1,0 +1,30 @@
+# grafting-plan.yaml — Stage 4t 产物，per-item × per-target-location 嫁接矩阵
+#
+# 渲染规则：
+# - 每个 graft 必须 req_id 指回 requirements.yaml::items[i].id
+# - target_location 可多个；confidence 三档（high / medium / low）+ evidence 必填
+# - graft_strategy 四类（按安全度）：add-new < merge-into < guarded-overlay < replace
+# - draft_status 生命周期：pending → drafted → applied | rejected
+
+task: {{task_name}}
+extracted_at: {{iso_timestamp}}
+
+plan:
+  - graft_id: G-{{nn}}
+    req_id: REQ-{{nn}}                    # 指回 requirements.yaml
+    source_evidence:
+      - sha: {{commit_sha}}
+        file: {{source_file_path}}
+        symbol: {{class_or_method}}
+        hunk: |
+          {{git_show_W_block}}
+    target_location:
+      - file: {{target_file_path}}
+        symbol: {{target_counterpart}}    # 可为空（add-new 时）
+        confidence: high | medium | low
+        evidence:                         # 映射依据（grep 结果、rename trail、判断要点）
+          - {{evidence_line}}
+    graft_strategy: replace | merge-into | add-new | guarded-overlay
+    guard_condition: ""                    # e.g., 'projectName == "JIASHAN"' (整体用单引号包裹以避免 YAML 解析问题); 仅 guarded-overlay 必填
+    draft_status: pending                  # pending → drafted → applied | rejected
+    rejection_reason: ""                   # draft_status == rejected 时填写

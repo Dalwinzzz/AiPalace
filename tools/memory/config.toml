@@ -1,0 +1,41 @@
+# AiPalace 手动飞轮 · 参数单一源(core.py / promote.py / gather_sessions.py 只读这里)
+# 六维权重与阈值移植同事 MemoryPalace _engine/config.toml(spec 2026-07-02 D5);跑不顺凭 DREAMS 数据调参。
+
+[sources]
+scan_days = 3                  # distill 扫 journal 最近几天(跨会话 freq 累积窗口)
+
+[scoring]
+w_relevance = 0.30             # 与 00-RULES「我是谁」语料的相关度
+w_frequency = 0.24             # 重复出现次数
+w_diversity = 0.15             # 不同来源数(claude/codex/journal)
+w_recency = 0.15               # 新近度
+w_consolidation = 0.10         # 是否在巩固已有记忆(同 relevance)
+w_richness = 0.06              # 信息量(长度)
+promote_threshold = 0.50       # 总分达标才进待审批,否则暂缓(DREAMS 留痕)
+min_freq_global = 2            # scope=global 铁律:journal 至少出现 2 次才可进 00-RULES
+merge_similarity = 0.78        # 候选之间合并阈值(freq 累积)
+dedupe_similarity = 0.72       # 与既有 vault 语料相似 ≥ 此值 → UPDATE
+noop_similarity = 0.92         # ≥ 此值 → NOOP(已存在)
+
+[routing]                      # dest 白名单(distill 标记 INVALID;promote 落盘前复验)
+rules_files = [
+  "00-RULES/identity.md", "00-RULES/tech-stack.md",
+  "00-RULES/dev.md", "00-RULES/flow.md", "00-RULES/ops.md",
+  "00-RULES/operating-rules.md",
+]
+projects_prefixes = [
+  "01-PROJECTS/projects/", "01-PROJECTS/enterprise/", "01-PROJECTS/tech/",
+  "01-PROJECTS/workflow/", "01-PROJECTS/reference/",
+]
+
+[sweep]                        # M5-B:gather_sessions.py(纯读取,无 LLM/subprocess)
+# sweep 补漏专用晋升门槛(ADR-0019):一次性扫历史会话抽出的事实天然 freq=1,
+# 被 w_frequency(0.24)结构性压分——两轮 sweep 28 条候选实测全落 0.42~0.47 区间、
+# 零达标。会话内 /ai-palace 仍用 [scoring].promote_threshold=0.50;
+# min_freq_global 不放宽,00-RULES 把门照旧。仅 core.py distill --sweep 生效。
+promote_threshold = 0.42
+days = 7
+max_files = 40
+max_user_turns_per_file = 60
+claude_projects = "~/.claude/projects"
+codex_sessions = ["~/.codex/sessions", "~/.codex/archived_sessions"]

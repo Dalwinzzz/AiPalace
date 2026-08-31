@@ -1,0 +1,17 @@
+# AiPalace —— 仅忽略垃圾，资产整目录入库
+**/.DS_Store
+**/__pycache__/
+**/.aipalace-managed
+*.pyc
+# 飞轮 sweep 机器本地账本(每台机器独立)
+tools/memory/.sweep-ledger.json
+# 仅忽略顶层运行日志（skillctl），不误伤 docs 内的 plans/logs/ 历史文档
+/logs/
+
+# 反排除：全局 ~/.config/git/ignore 里的 `**/spec-architect/` 与 `**/docs/commit-review/`
+# 本意是屏蔽各业务项目中 AI 生成的 spec / 审查报告产物，但会误伤本仓的 skill 源目录
+# （P1 单一真源：skill 源码必须入库）。仓库级 .gitignore 优先级高于全局，此处重新纳入。
+!skills/mine/spec-architect/
+!skills/mine/spec-architect/**
+!skills/mine/commit-review/
+!skills/mine/commit-review/**

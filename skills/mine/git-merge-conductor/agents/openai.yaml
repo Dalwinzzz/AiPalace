@@ -1,0 +1,7 @@
+interface:
+  display_name: "Git Merge Conductor"
+  short_description: "Handle complex merges, backports, and patch applies"
+  default_prompt: "Use $git-merge-conductor to handle a complex merge, backport, or patch-apply task in this repository."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,5 @@
+- Backend Java developer at a company doing SaaS products deployed across multiple regions in China
+- Created/maintains the kernel-framework microkernel plugin architecture and its implementation in skcactivity
+- Self-describes as not having deep understanding of Java ClassLoader mechanics — needs analogies and accessible explanations for technical concepts
+- Comfortable with Spring Boot, Maven, MyBatis development
+- Uses Chinese as primary language for communication and documentation

@@ -1,0 +1,33 @@
+# requirements.yaml — Stage 2 产物，作为 Stage 6.5 / 7.5 Phase 2 的对照宪法
+#
+# 渲染规则：
+# - 中文 fixed text 保持；占位符用 {{var_name}} (English)
+# - items 数组按用户需求逐项展开；每项必填 acceptance + out_of_scope
+# - 模糊条目（模型推断非用户直说）必须 ambiguous: true，Stage 2 Gate 必须澄清
+
+task: {{task_name}}
+extracted_at: {{iso_timestamp}}
+
+items:
+  - id: REQ-{{nn}}
+    title: {{中文一句话}}
+    scope_tag: {{free_text}}            # 自由文本，由 Stage 2 model 按 task 起；
+                                        # 例："嘉善养育照护专属" / "通用课堂功能" / "tbd-待用户确认"
+    target_locations:                   # 改动位置（可为空，由 Stage 4t/5c 推断填充）
+      - file: {{relative_path}}
+        symbol: {{class_or_method}}     # 可选
+    acceptance:                         # 完成判据；Phase 2 用户兜底报表用
+      - {{中文一行}}
+      - {{中文一行}}
+    out_of_scope:                       # per-item 负向约束（喂给 Stage 6.5）
+      - {{中文一行}}
+    status: pending                     # pending | partial | completed | abandoned
+                                        # Stage 6 / 6.5 / 7 / 7.5 维护
+    evidence:                           # 完成证据
+      commits: []
+      files_touched: []
+    ambiguous: false                    # 模糊条目必须 true，需用户确认才能进 Stage 3
+
+global_out_of_scope:                    # 全局负向约束（适用所有 item）
+  - {{自动从 references/negative-constraints.md 通用条目注入}}
+  - {{用户在 Stage 2 自定义补充，可选}}

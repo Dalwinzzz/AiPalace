@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "glossary-001",
+      "title": "覆盖索引 (Covering Index)",
+      "type": "glossary",
+      "workflow": "sql-query-optimizer",
+      "dialect": "universal",
+      "tags": [
+        "index",
+        "performance",
+        "query-optimization"
+      ],
+      "review_status": "approved",
+      "problem_pattern": "查询需要回表获取额外字段时考虑覆盖索引",
+      "conclusion": "当查询所需的所有列都包含在索引中时，数据库可直接从索引获取数据而无需回表，显著减少 IO",
+      "file": "glossary/glossary-001-covering-index.md"
+    },
+    {
+      "id": "rule-001",
+      "title": "隐式类型转换导致索引失效",
+      "type": "rule",
+      "workflow": "sql-query-optimizer",
+      "dialect": "mysql",
+      "tags": [
+        "index",
+        "type-conversion",
+        "performance",
+        "anti-pattern"
+      ],
+      "review_status": "approved",
+      "problem_pattern": "WHERE 条件中字段类型与比较值类型不一致",
+      "conclusion": "MySQL 会对索引字段做隐式类型转换（字符串→数字），导致无法使用索引，退化为全表扫描",
+      "file": "rules/rule-001-implicit-type-conversion.md"
+    },
+    {
+      "id": "template-001",
+      "title": "日统计报表基础模板",
+      "type": "template",
+      "workflow": "sql-report-query-builder",
+      "dialect": "universal",
+      "tags": [
+        "report",
+        "statistics",
+        "template",
+        "daily",
+        "aggregation"
+      ],
+      "review_status": "approved",
+      "problem_pattern": "需要按日期维度统计某业务指标的汇总数据",
+      "conclusion": "提供一个通用的日统计报表 SQL 模板，包含日期筛选、分组聚合、排序和空值处理",
+      "file": "templates/template-001-daily-statistics.md"
+    }
+  ],
+  "last_updated": "2026-04-09T08:26:43.248449+00:00"
+}

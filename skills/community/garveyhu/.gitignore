@@ -1,0 +1,6 @@
+# links —— 自动生成 by tools/skillctl.py
+# 本来源整目录入库（只放我自己的 skill）；仅忽略垃圾文件
+
+*.skill
+**/.DS_Store
+**/__pycache__/

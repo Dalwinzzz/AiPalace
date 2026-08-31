@@ -1,0 +1,20 @@
+{
+  "name": "dalwin-local-plugins",
+  "interface": {
+    "displayName": "dalwin Local Plugins"
+  },
+  "plugins": [
+    {
+      "name": "sql-expert-dba",
+      "source": {
+        "source": "local",
+        "path": "./sql-expert-dba"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Programming"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" width="280" height="64">
+  <!-- Database icon -->
+  <ellipse cx="28" cy="16" rx="16" ry="7" fill="#3B82F6" opacity="0.9"/>
+  <rect x="12" y="16" width="32" height="24" fill="#3B82F6" opacity="0.8"/>
+  <ellipse cx="28" cy="40" rx="16" ry="7" fill="#2563EB"/>
+  <ellipse cx="28" cy="16" rx="16" ry="7" fill="#60A5FA"/>
+  <ellipse cx="28" cy="28" rx="16" ry="7" fill="none" stroke="#93C5FD" stroke-width="0.8" opacity="0.6"/>
+  <text x="28" y="32" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="white">SQL</text>
+  <!-- Title text -->
+  <text x="60" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#1E40AF">SQL Expert</text>
+  <text x="60" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#6B7280">DBA Assistant</text>
+</svg>

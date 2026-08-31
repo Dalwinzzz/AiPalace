@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Database cylinder -->
+  <ellipse cx="32" cy="16" rx="20" ry="8" fill="#3B82F6" opacity="0.9"/>
+  <rect x="12" y="16" width="40" height="28" fill="#3B82F6" opacity="0.8"/>
+  <ellipse cx="32" cy="44" rx="20" ry="8" fill="#2563EB"/>
+  <ellipse cx="32" cy="16" rx="20" ry="8" fill="#60A5FA"/>
+  <!-- Middle ring -->
+  <ellipse cx="32" cy="30" rx="20" ry="8" fill="none" stroke="#93C5FD" stroke-width="1" opacity="0.6"/>
+  <!-- SQL text -->
+  <text x="32" y="36" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="white">SQL</text>
+</svg>

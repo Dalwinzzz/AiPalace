@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "dalwin-local-plugins",
+  "owner": { "name": "dalwin" },
+  "version": "1.0.0",
+  "description": "dalwin 本地 Claude 插件 marketplace",
+  "plugins": [
+    {
+      "name": "sql-expert-dba",
+      "description": "分析型 SQL DBA 助手：优化/诊断/评审/报表 + 全局 SQL memory",
+      "source": "./sql-expert-dba",
+      "category": "development"
+    }
+  ]
+}
